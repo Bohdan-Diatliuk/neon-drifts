@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "ES2022",               // або ES2023/ESNext — залежить від того, наскільки нові фічі хочеш
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,       // раджу увімкнути
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,          // дуже важливо для tsx / vite / esbuild
+    "verbatimModuleSyntax": true,     // сучасний стандарт (ти вже маєш)
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "sourceMap": true,
+    "declaration": true,              // якщо плануєш створювати .d.ts (наприклад, для бібліотеки)
+    "declarationMap": true,
+    "esModuleInterop": true,          // допомагає з CommonJS модулями (express тощо)
+    "resolveJsonModule": true,        // імпорт json як модулів
+    "allowSyntheticDefaultImports": true,
+    "lib": ["ES2023", "DOM"],         // ES2023 якщо хочеш новіші фічі, DOM якщо є тестування з jsdom
+    "types": ["node"]                 // або залиш порожнім, якщо встановив @types/node
+  },
+
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"]
+}
